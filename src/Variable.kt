@@ -1,10 +1,9 @@
-// File: basic.kt
 
 // Define a top-level constant
 const val KOTLIN = "KOTLIN"
 
 // Function that performs the logic
-fun runBasicExample() {
+fun Variable() {
     // Print the constant
     println(KOTLIN)  // Output: KOTLIN
 

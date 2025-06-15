@@ -1,6 +1,6 @@
 
-import runBasicExample
 
 fun main() {
-    runBasicExample()
+    Variable()
+    Function()
 }

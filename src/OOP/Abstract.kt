@@ -9,10 +9,34 @@ public abstract class PublicAbstractShape(val name: String) {
 
     // concrete helper—available (and override-able) to subclasses
     open fun describe(): String = "$name has area ${area()}"
+
+    // 1) public var (default): public getter + public setter; both final
+    var publicVar: Int = 0
+
+    // 2) open var: public getter + public setter; both open for override
+    open var openVar: Int = 1
+
+    // 3) private var: getter & setter only visible inside this class
+    private var privateVar: Int = 2
+
+    // 4) protected var: getter & setter visible to this class & its subclasses
+    protected var protectedVar: Int = 3
+
+    // 5) var with restricted setter: public getter, protected setter
+    var protectedSetterVar: Int = 4
+        protected set
+
+    // 6) abstract var: no backing field here—must be overridden
+    abstract var abstractVar: String
+
+    // 7) var with custom accessors
+    var customAccessorVar: Int = 5
+        get() = field * 2           // getter doubles the stored value
+        set(value) { field = value / 2 }  // setter halves the incoming value
 }
 
 // Subclass in the same file
-class PublicCircle(radius: Double) : PublicAbstractShape("PublicCircle") {
+abstract class PublicCircle(radius: Double) : PublicAbstractShape("PublicCircle") {
     private val r = radius
     override fun area() = Math.PI * r * r
     override fun describe() = super.describe() + " (radius=$r)"

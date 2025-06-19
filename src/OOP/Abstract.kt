@@ -79,3 +79,7 @@ class Container {
         return dot.render()
     }
 }
+/*
+To allow a class to be inherited by other classes,
+the class should be marked with the open keyword. (Abstract classes are always open.)
+ */

@@ -24,6 +24,19 @@ fun checkType(obj: Parent) = when (obj) {
     is AnotherChild -> "AnotherChild"
 }
 
+sealed class Base {
+    open var value: Int = 23
+    open fun foo() = value * 2
+}
+open class Child1 : Base() {
+    override fun foo() = value * 3
+    final override var value: Int = 10
+        set(value) = run { field = super.foo() }
+}
+class Child2 : Base()
+
+
+
 fun main() {
     OpenSealed().greet()  // Hello from OpenBase
     CLass().greet()     // Hello from Child
@@ -31,5 +44,10 @@ fun main() {
     println(checkType(Child()))
     println(checkType(AnotherChild()))
 
+    val b: Base = Child1()
+    when(b) {
+        is Child1 -> println(1)
+        is Child2 -> println(2)
+    }
 }
 

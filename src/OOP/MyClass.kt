@@ -19,6 +19,10 @@ package OOP
     Use init for validation or simple setup.
     Use secondary constructors for alternative initialization logic.
     Keep init blocks lightweight to avoid complexity.
+
+    A class can extend one class and any number of interfaces.
+
+
 */
 
 class MyClass(val name: String, var surname: String, private var age: Int = 0) {

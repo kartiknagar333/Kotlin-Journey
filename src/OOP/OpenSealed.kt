@@ -14,6 +14,7 @@ class CLass : OpenSealed() {
 In Kotlin, a sealed class restricts inheritance to a set of subclasses defined in the same file.
 It’s inherently open (no need for open keyword) and used for controlled hierarchies, often with when expressions.
 */
+
 sealed class Parent
 class Child : Parent()
 class AnotherChild : Parent()

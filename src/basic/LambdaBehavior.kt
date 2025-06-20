@@ -1,4 +1,4 @@
-// File: LambdaBehavior.kt
+package basic// File: basic.LambdaBehavior.kt
 
 fun LambdaBehavior() {
     println("===== INLINE FUNCTION DEMO =====")
@@ -23,17 +23,17 @@ fun LambdaBehavior() {
  * Allows `return` to exit the calling function (non-local return).
  */
 inline fun inlineFunction(block: () -> Unit) {
-    println("inlineFunction: Before block")
-    block() // this is copied into testInline()
-    println("inlineFunction: After block") // skipped if `return` is called in block
+    println("basic.inlineFunction: Before block")
+    block() // this is copied into basic.testInline()
+    println("basic.inlineFunction: After block") // skipped if `return` is called in block
 }
 
 fun testInline() {
     inlineFunction {
-        println("inlineFunction block: Hello")
-        return  // ✅ exits testInline() directly (non-local return allowed)
+        println("basic.inlineFunction block: Hello")
+        return  // ✅ exits basic.testInline() directly (non-local return allowed)
     }
-    println("testInline: This won't be printed") // unreachable
+    println("basic.testInline: This won't be printed") // unreachable
 }
 
 /////////////////////
@@ -45,7 +45,7 @@ fun testInline() {
  * useful when passing the lambda to another execution context (like a thread or Runnable).
  */
 inline fun runWithCrossinline(crossinline block: () -> Unit) {
-    println("runWithCrossinline: Before Runnable")
+    println("basic.runWithCrossinline: Before Runnable")
 
     val runnable = Runnable {
         println("Runnable is executing:")
@@ -54,7 +54,7 @@ inline fun runWithCrossinline(crossinline block: () -> Unit) {
     }
 
     runnable.run()
-    println("runWithCrossinline: After Runnable")
+    println("basic.runWithCrossinline: After Runnable")
 }
 
 fun testCrossinline() {
@@ -63,7 +63,7 @@ fun testCrossinline() {
         // return ❌ would be a compile error
     }
 
-    println("testCrossinline: Done")
+    println("basic.testCrossinline: Done")
 }
 
 /////////////////////
@@ -78,10 +78,10 @@ inline fun mixedInlineNoinline(
     inlineBlock: () -> Unit,
     noinline nonInlinedBlock: () -> Unit
 ) {
-    println("mixedInlineNoinline: Start")
+    println("basic.mixedInlineNoinline: Start")
     inlineBlock()       // this gets inlined at call site
     nonInlinedBlock()   // this stays as a lambda object
-    println("mixedInlineNoinline: End")
+    println("basic.mixedInlineNoinline: End")
 }
 
 fun testNoinline() {
@@ -96,7 +96,7 @@ fun testNoinline() {
         nonInlinedBlock = lambda
     )
 
-    println("testNoinline: Done")
+    println("basic.testNoinline: Done")
 }
 
 /////////////////////

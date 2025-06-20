@@ -1,33 +1,33 @@
-// File: LambdaDemo.kt
+package basic// File: LambdaDemo.kt
 
 // Entry point to demonstrate all lambda usages
 fun Lambda() {
-    println("=== Lambda Function Demo ===\n")
+    println("=== basic.Lambda basic.Function Demo ===\n")
 
     // Basic lambda passed to a function: returns x + y
     val result = operate0(2, 3) { x, y -> x + y }
-    println("operate0(2, 3) with lambda { x + y }: $result")
+    println("basic.operate0(2, 3) with lambda { x + y }: $result")
 
     // Same as above using expression body style
-    println("operate1(2, 3) with lambda { x - y }: " +
+    println("basic.operate1(2, 3) with lambda { x - y }: " +
         operate1(2, 3) { x, y -> x - y })
 
     // Using lambda that returns Unit (no result), prints directly
-    print("operate2(2, 3) with lambda { println(x * y) }: ")
+    print("basic.operate2(2, 3) with lambda { println(x * y) }: ")
     operate2(2, 3) { x, y -> println(x * y) }
 
     // Passing a named function using :: (function reference)
-    println("operate1(2, 3, ::add): " + operate1(2, 3, ::add0))
+    println("basic.operate1(2, 3, ::basic.add): " + operate1(2, 3, ::add0))
 
-    println("\n=== Lambda Function Table Summary ===")
+    println("\n=== basic.Lambda basic.Function Table Summary ===")
     printFunctionTable()
     printSyntaxRules()
     printStyleNotes()
 }
 
-// -------- Lambda Function Definitions --------
+// -------- basic.Lambda basic.Function Definitions --------
 
-// 1. Function using full block body and lambda with return type
+// 1. basic.Function using full block body and lambda with return type
 fun operate0(x: Int, y: Int, op: (Int, Int) -> Int): Int {
     return op(x, y)
 }
@@ -35,7 +35,7 @@ fun operate0(x: Int, y: Int, op: (Int, Int) -> Int): Int {
 // 2. Expression body version of above function (shorter)
 fun operate1(x: Int, y: Int, op: (Int, Int) -> Int) = op(x, y)
 
-// 3. Function using lambda that returns Unit (used for printing/logging)
+// 3. basic.Function using lambda that returns Unit (used for printing/logging)
 fun operate2(x: Int, y: Int, op: (Int, Int) -> Unit) = op(x, y)
 
 // 4. Named function to pass as reference
@@ -48,12 +48,12 @@ fun add0(a: Int, b: Int): Int {
 fun printFunctionTable() {
     println(
         """
-| Function     | Type                    | Explanation                                        |
+| basic.Function     | Type                    | Explanation                                        |
 | ------------ | ----------------------- | -------------------------------------------------- |
-| operate()    | with lambda             | Accepts (Int, Int) -> Int and returns result       |
-| operate1()   | expression body version | Same as above, just shorthand                      |
-| operate2()   | with Unit lambda        | Accepts (Int, Int) -> Unit, executes action only   |
-| ::add        | function reference      | Passing existing function by name                  |
+| basic.operate()    | with lambda             | Accepts (Int, Int) -> Int and returns result       |
+| basic.operate1()   | expression body version | Same as above, just shorthand                      |
+| basic.operate2()   | with Unit lambda        | Accepts (Int, Int) -> Unit, executes action only   |
+| ::basic.add        | function reference      | Passing existing function by name                  |
         """.trimIndent()
     )
 }

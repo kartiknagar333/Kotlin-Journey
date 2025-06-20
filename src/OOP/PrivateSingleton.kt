@@ -26,7 +26,7 @@ class PrivateSingleton private constructor(
 
         fun create(name: String): PrivateSingleton = PrivateSingleton(name)
         fun printInfo() {
-            println("Person class: Creates Person instances with name, surname, and age")
+            println("basic.Person class: Creates basic.Person instances with name, surname, and age")
         }
     }
 

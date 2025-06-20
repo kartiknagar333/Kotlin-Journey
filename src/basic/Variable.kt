@@ -1,11 +1,11 @@
-
+package basic
 // Define a top-level constant
-const val KOTLIN = "KOTLIN"
+const val KOTLIN = "basic.KOTLIN"
 
-// Function that performs the logic
+// basic.Function that performs the logic
 fun Variable() {
     // Print the constant
-    println(KOTLIN)  // Output: KOTLIN
+    println(KOTLIN)  // Output: basic.KOTLIN
 
     // `var` is mutable
     var a = 5

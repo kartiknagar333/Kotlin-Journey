@@ -16,14 +16,14 @@ data class Person(val name: String, val age: Int)
 class Nested
 
 /*
-In Kotlin, a nested class is by default static—it does not hold a reference to its outer class.
+In Kotlin, a nested class is by default static—it does not hold a reference to its basic.outer class.
 If you want your nested class to carry a pointer to its containing instance (i.e. be non-static),
 you mark it with the inner modifier. This becomes an inner class.
 Compiles to a static nested class (like Java’s static class).
-Cannot access any members of Outer (unless through an explicit outer instance passed in).
+Cannot access any members of Outer (unless through an explicit basic.outer instance passed in).
 inner class Inner
 Compiles to a non-static inner class.
-Holds a hidden field this$0 (a reference to its Outer), letting you access outer members directly
+Holds a hidden field this$0 (a reference to its Outer), letting you access basic.outer members directly
  */
 
 
@@ -35,7 +35,7 @@ class Window(val title: String) {
 
     inner class CloseButton {
         fun click() {
-            // Directly call the outer’s close():
+            // Directly call the basic.outer’s close():
             this@Window.close()
         }
     }
@@ -45,7 +45,7 @@ class Window(val title: String) {
 fun main(){
     val person = Person("Alice", 25)
     val person2 = person.copy(age = 26) // Creates new instance with modified age
-    println(person) // Person(name=Alice, age=25)
+    println(person) // basic.Person(name=Alice, age=25)
     println(person == person2) // false
 
     val win = Window("MyApp")

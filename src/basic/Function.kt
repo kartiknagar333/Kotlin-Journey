@@ -1,7 +1,7 @@
-
+package basic
 // Entry function to demonstrate all features
 fun Function() {
-    // 1. Basic Function: adds two numbers
+    // 1. Basic basic.Function: adds two numbers
     println("Add(3, 4): " + add(3, 4))
 
     // 2. No parameter, no return function
@@ -22,30 +22,30 @@ fun Function() {
     printAll("One", "Two", "Three")
 
     // 7. Nothing function: crashes app – skipped
-    // fail()
+    // basic.fail()
 
     // 8. Local function: function declared inside another
     outer()
 
     // 10 & 11. Higher-order and function type: pass function as argument
     val result = operate(10, 20, ::add)
-    println("Operate with add: $result")
+    println("Operate with basic.add: $result")
 
     // 12. Inline function: function body is inlined at call site
     runTwice { println("Hello from inline function!") }
 
-    // 13. Extension function: extends String with a reverse() method
+    // 13. Extension function: extends String with a basic.reverse() method
     val name = "Kotlin"
     println("Reversed name: " + name.reverse())
 
-    // 14. Tail recursion: factorial using optimized recursion
+    // 14. Tail recursion: basic.factorial using optimized recursion
     println("Factorial of 5: " + factorial(5))
 
-    // 15. Function Overloading: greet with and without parameter
+    // 15. basic.Function Overloading: basic.greet with and without parameter
     greet()
     greet("Overload")
 
-    // 16. Anonymous Function: function assigned to variable
+    // 16. Anonymous basic.Function: function assigned to variable
     val square = fun(x: Int): Int {
         return x * x
     }
@@ -63,7 +63,7 @@ fun Function() {
 // SUPPORT FUNCTIONS //
 ///////////////////////
 
-// 1. Basic Function
+// 1. Basic basic.Function
 fun add(a: Int, b: Int): Int {
     return a + b
 }
@@ -76,12 +76,12 @@ fun sayHello() {
 // 3. Expression body function
 fun multiply(a: Int, b: Int): Int = a * b
 
-// 4. Function with default argument
+// 4. basic.Function with default argument
 fun greet(name: String = "Guest") {
     println("Hello, $name")
 }
 
-// 5. Function using parameters
+// 5. basic.Function using parameters
 fun createUser(name: String, age: Int, city: String) {
     println("User(name=$name, age=$age, city=$city)")
 }
@@ -91,13 +91,13 @@ fun printAll(vararg words: String) {
     for (word in words) println("Word: $word")
 }
 
-// 7. Function returning Nothing type – crashes when called
+// 7. basic.Function returning Nothing type – crashes when called
 fun fail(): Nothing {
     println("Nothing")
     throw IllegalStateException("Something went wrong!")
 }
 
-// 8. Function containing a local (inner) function
+// 8. basic.Function containing a local (inner) function
 fun outer() {
     fun inner() {
         println("I'm a local function")
@@ -116,12 +116,12 @@ inline fun runTwice(action: () -> Unit) {
     action()
 }
 
-// 13. Extension function: adds reverse() to String
+// 13. Extension function: adds basic.reverse() to String
 fun String.reverse(): String {
     return this.reversed()
 }
 
-// 14. Tail-recursive factorial
+// 14. Tail-recursive basic.factorial
 tailrec fun factorial(n: Int, acc: Int = 1): Int {
     return if (n <= 1) acc else factorial(n - 1, acc * n)
 }
